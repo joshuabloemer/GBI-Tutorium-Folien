@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE ipestyle SYSTEM "ipe.dtd">
+<ipestyle name="tutorium-preamble">
+<preamble>
+
+  % extra packages %%%%%%%%%
+
+  \usepackage[ngerman]{babel}
+
+  \usepackage{siunitx}
+
+  \sisetup{locale = DE}
+
+  \usepackage{mathtools}  
+
+  \usepackage[utf8]{inputenc}
+
+  \usepackage{amsmath}
+
+  \usepackage{amssymb}
+
+  \usepackage{mathrsfs}
+
+  \usepackage{latexsym}
+
+  \usepackage{bm}
+
+  \usepackage{tikz}
+
+  \usepackage{xcolor}
+
+  \usepackage{pgfplots}
+
+  \usepackage{booktabs}
+
+  \usepackage{tabularx}
+
+  \usepackage{graphics}
+
+  \usepackage{multirow}
+
+
+
+  % commands %%%%%%%%%%%%%%%
+
+  \newcommand{\eps}{\varepsilon}
+
+  \newcommand{\eulere}{\mathrm{e}}
+
+  \renewcommand{\emph}[1]{\textbf{\color{green1}#1}}
+
+  \renewcommand{\cite}[2]{{\color{green1}[\textbf{#1}; #2]}}
+
+  \newcommand{\EX}[1]{\mathbb E\left[ #1 \right]}
+
+  \newcommand{\Pro}[1]{\mathrm{Pr}\left[ #1 \right]}
+
+  \newcommand{\dif}[1]{\mathop{}\!\mathrm{d}#1\mathop{}}
+
+  \DeclareMathOperator{\dist}{dist}
+
+  \DeclareMathOperator{\len}{len}
+
+  % pseudocode %%%%%%%%%%%%%
+
+  \newcommand{\class}[1]{\keyword{class} \textbf{\color{gray1}\textsc{#1}}}
+
+  \newcommand{\function}[1]{\textbf{\color{blue1}#1}}
+
+  \newcommand{\keyword}[1]{\textbf{\color{green1}#1}}
+
+  \newcommand{\type}[1]{\textit{\color{gray1}#1}}
+
+  \newcommand{\comment}[1]{{\color{red2}// #1}}
+
+ % settings 
+
+  \german
+
+  \newcommand{\name}{Joshua Blömer}
+
+  \newcommand{\tutnum}{06}
+
+  \newcommand{\prestitle}{Tutorium Grundbegriffe der Informatik}
+
+  \newcommand{\email}{joshua.bloemer@student.kit.edu}
+
+  \renewcommand{\vec}[1]{\mathaccent&quot;017E {#1}}
+
+  \newcommand{\discord}{sirjyoshi}
+
+  \newcommand{\qCite}[1]{\smash{\textcolor{KITblue}{\raisebox{0.1ex}{[}{\small #1}\raisebox{0.1ex}{]}}}\vphantom{Ig}}
+
+  \newcommand{\alert}[1]{\textcolor{KITgreen}{{\bf #1}}}
+
+  \newcommand{\eg}[1]{\textcolor{KITblack!40}{(#1)}}
+
+  \newcommand{\rk}[1]{\smash{\raisebox{0.2ex}{(}{#1}\raisebox{0.2ex}{)}}}
+
+  \newcommand{\ek}[1]{\smash{\raisebox{0.15ex}{[}{#1}\raisebox{0.15ex}{]}}}
+
+  \newcommand{\mm}[1]{\scalebox{1.12}{\textrm{\textit{#1}}}}
+
+  \newcommand{\ml}{\raisebox{0.1ex}{-}}
+
+  \newcommand{\mx}{\raisebox{0.1ex}{+}}
+
+</preamble>
+</ipestyle>
