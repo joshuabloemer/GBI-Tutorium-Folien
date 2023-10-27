@@ -33,4 +33,4 @@ jobs:
         run: apt install ipe -y
       
       - name: Convert to pdf
-        run: ipetopipe -pdf ${{ github.workspace }}/01-Orga-Mengenlehre.ipe ${{ github.workspace }}/01-Orga-Mengenlehre.pdf 
+        run: ipetoipe -pdf ${{ github.workspace }}/01-Orga-Mengenlehre.ipe ${{ github.workspace }}/01-Orga-Mengenlehre.pdf 
