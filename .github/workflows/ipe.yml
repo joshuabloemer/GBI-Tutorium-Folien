@@ -30,7 +30,7 @@ jobs:
       - name: update package list
         run: apt-get update
       - name: Install ipe
-        run: apt install ipe
+        run: apt install ipe -y
       
       - name: Convert to pdf
         run: ipetopipe -pdf ${{ github.workspace }}/01-Orga-Mengenlehre.ipe ${{ github.workspace }}/01-Orga-Mengenlehre.pdf 
