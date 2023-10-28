@@ -34,3 +34,9 @@ jobs:
       
       - name: Convert to pdf
         run: ipetoipe -pdf 01-Orga-Mengenlehre.ipe 01-Orga-Mengenlehre.pdf 
+      
+      - name: Upload binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDFs
+          path: /*.pdf
