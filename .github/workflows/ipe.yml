@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,16 +25,28 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
       # Runs a single command using the runners shell
       - name: update package list
         run: apt-get update
       - name: Install ipe
         run: apt install ipe -y
-      
+
+      - name: Get changes
+        id: changed-files
+        run: git diff --name-only -r HEAD^1 HEAD
+
+      - name: List changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.changed_files }}; do
+            echo "$file was changed"
+          done
+
       - name: Convert to pdf
-        run: ipetoipe -pdf 01-Orga-Mengenlehre.ipe 01-Orga-Mengenlehre.pdf 
-      
+        run: ipetoipe -pdf 01-Orga-Mengenlehre.ipe 01-Orga-Mengenlehre.pdf
+
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
