@@ -42,8 +42,9 @@ jobs:
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [[${file##*.} == "pdf" && ! file == "00-Preset.ipe"]] 
+            if [[${file##*.} == "pdf" && ! file == "00-Preset.ipe"]] then
               echo "$file was changed"
+            fi
           done
 
 
