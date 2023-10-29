@@ -39,7 +39,7 @@ jobs:
       - name: Install ipe
         run: apt install ipe -y
 
-      - name: List all changed files
+      - name: Convert ipe files to pdf
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             if [[ ${file##*.} == "ipe" && ${file} != "00-Preset.ipe" ]]
@@ -48,15 +48,8 @@ jobs:
             fi
           done
 
-
-      # Runs a single command using the runners shell
-
-
-      # - name: Convert to pdf
-      #   run: ipetoipe -pdf 01-Orga-Mengenlehre.ipe 01-Orga-Mengenlehre.pdf
-
-      # - name: Upload binary
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: PDFs
-      #     path: "*.pdf"
+      - name: Upload binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: Slides
+          path: "*.pdf"
