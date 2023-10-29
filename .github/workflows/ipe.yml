@@ -42,7 +42,7 @@ jobs:
       - name: Convert ipe files to pdf
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [ ${file##*.} == "ipe" && ${file} != "00-Preset.ipe" ]
+            if [ ${file##*.} == "ipe" ] && [ ${file} != "00-Preset.ipe" ]
             then
               ipetoipe -pdf ${file} ${file%.*}.pdf
             fi
