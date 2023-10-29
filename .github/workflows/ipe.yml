@@ -19,9 +19,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # container: 
-      # image: texlive/texlive:latest
-      # options: --user root
+    container: 
+      image: texlive/texlive:latest
+      options: --user root
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -31,16 +31,17 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
-            if ${{ github.event_name == 'pull_request' }}; then
-                echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
-            else
-                echo "changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | xargs)" >> $GITHUB_OUTPUT
-            fi
-      - name: List changed files
-        run: |
-            for file in ${{ steps.changed-files.outputs.changed_files }}; do
-                echo "$file was changed"
-            done
+              echo git status
+      #       if ${{ github.event_name == 'pull_request' }}; then
+      #           echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
+      #       else
+      #           echo "changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | xargs)" >> $GITHUB_OUTPUT
+      #       fi
+      # - name: List changed files
+      #   run: |
+      #       for file in ${{ steps.changed-files.outputs.changed_files }}; do
+      #           echo "$file was changed"
+      #       done
 
 
       # Runs a single command using the runners shell
