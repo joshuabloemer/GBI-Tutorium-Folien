@@ -45,7 +45,7 @@ jobs:
           files=(${{ steps.changed-files.outputs.all_changed_files }})
           for file in "${files[@]}"; do
             file="${file@E}"
-            if [ ${file##*.} == "ipe" && ${file} != "00-Preset.ipe" ]
+            if [[ ${file##*.} == "ipe" && ${file} != "00-Preset.ipe" ]]
             then
               ipetoipe -pdf ${file} ${file%.*}.pdf
             fi
