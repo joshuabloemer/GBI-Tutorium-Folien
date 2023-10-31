@@ -41,12 +41,14 @@ jobs:
 
       - name: Convert ipe files to pdf
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            if [ ${file##*.} = "ipe" ] && [ ${file} != "00-Preset.ipe" ]
-            then
-              ipetoipe -pdf ${file} ${file%.*}.pdf
-            fi
-          done
+          files=(${{ steps.changed-files.outputs.all_changed_files }})
+            for file in "${files[@]}"; do
+              file="${file@E}"
+              if [ ${file##*.} = "ipe" ] && [ ${file} != "00-Preset.ipe" ]
+              then
+                ipetoipe -pdf ${file} ${file%.*}.pdf
+              fi
+            done
 
       - name: Upload binary
         uses: actions/upload-artifact@v3
