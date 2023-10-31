@@ -40,15 +40,16 @@ jobs:
         run: apt install ipe -y
 
       - name: Convert ipe files to pdf
+        shell: bash
         run: |
           files=(${{ steps.changed-files.outputs.all_changed_files }})
-            for file in "${files[@]}"; do
-              file="${file@E}"
-              if [ ${file##*.} = "ipe" ] && [ ${file} != "00-Preset.ipe" ]
-              then
-                ipetoipe -pdf ${file} ${file%.*}.pdf
-              fi
-            done
+          for file in "${files[@]}"; do
+            file="${file@E}"
+            if [ ${file##*.} == "ipe" && ${file} != "00-Preset.ipe" ]
+            then
+              ipetoipe -pdf ${file} ${file%.*}.pdf
+            fi
+          done
 
       - name: Upload binary
         uses: actions/upload-artifact@v3
