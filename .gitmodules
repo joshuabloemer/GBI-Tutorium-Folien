@@ -1,0 +1,3 @@
+[submodule "Turing-machine-tape-generator"]
+	path = Turing-machine-tape-generator
+	url = https://github.com/joshuabloemer/Turing-machine-tape-generator
